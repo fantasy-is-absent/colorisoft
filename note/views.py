@@ -19,7 +19,6 @@ def count_unique_words(note):
             pass
         else:
             unique_words.append(word)
-    print(ord(' '))
     return len(unique_words)
 
 
@@ -29,7 +28,6 @@ def view_note(request):
         if form.is_valid():
             note = form.save(commit=False)
             note.count_unique_words = count_unique_words(note.note)
-            print(note.count_unique_words)
             note.save()
     notes = Note.objects.all().order_by('count_unique_words')
     form = NoteForm()

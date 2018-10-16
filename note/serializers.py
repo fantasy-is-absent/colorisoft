@@ -7,4 +7,5 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Note
-        fields = ('note', )
+        fields = ('note', 'count_unique_words')
+        read_only_fields = ('count_unique_words',)
